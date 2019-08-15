@@ -1,13 +1,21 @@
+import Service from '@ember/service';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import EmberObject from '@ember/object';
 
+let StubMapsService = Service.extend({
+  getMapElement() {
+    return Promise.resolve(document.createElement('div'));
+  }
+});
+
 module('Integration | Component | rental-listing', function(hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
+    this.owner.register('service:map-element', StubMapsService);
     this.rental = EmberObject.create({
       image: 'fake.png',
       title: 'test-title',
@@ -33,21 +41,4 @@ module('Integration | Component | rental-listing', function(hooks) {
     assert.notOk(this.element.querySelector('.image.wide'), 'rendered small after second click');
   });
 
-  //test('it renders', async function(assert) {
-  //  // Set any properties with this.set('myProperty', 'value');
-  //  // Handle any actions with this.set('myAction', function(val) { ... });
-  //
-  //  await render(hbs`<RentalListing />`);
-  //
-  //  assert.equal(this.element.textContent.trim(), '');
-  //
-  //  // Template block usage:
-  //  await render(hbs`
-  //    <RentalListing>
-  //      template block text
-  //    </RentalListing>
-  //  `);
-  //
-  //  assert.equal(this.element.textContent.trim(), 'template block text');
-  //});
 });

@@ -1,16 +1,29 @@
+import Service from '@ember/service';
 import { module, test } from 'qunit';
-import { click, visit, currentURL, fillIn, triggerKeyEvent } from '@ember/test-helpers';
+//import { click, visit, currentURL, fillIn, triggerKeyEvent } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
-//import {
-//  click,
-//  currentUrl,
-//  visit
-//} from '@ember/test-helpers';
+import {
+  click,
+  currentURL,
+  visit,
+  fillIn,
+  triggerKeyEvent
+} from '@ember/test-helpers'
+
+let StubMapsService = Service.extend({
+  getMapElement() {
+    return Promise.resolve(document.createElement('div'));
+  }
+});
 
 module('Acceptance | list rentals', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+
+  hooks.beforeEach(function() {
+    this.owner.register('service:map-element', StubMapsService);
+  });
 
   test('should show rentals as the home page', async function (assert) {
     await visit('/');
@@ -20,13 +33,13 @@ module('Acceptance | list rentals', function(hooks) {
   test('should link to information about the company.', async function (assert) {
     await visit('/');
     await click(".menu-about");
-    assert.equal(currentUrl(), '/about', 'should navigate to about');
+    assert.equal(currentURL(), '/about', 'should navigate to about');
   });
 
   test('should link to contact information.', async function (assert) {
     await visit('/');
     await click(".menu-contact");
-    assert.equal(currentUrl(), '/contact', 'should navigate to contact');
+    assert.equal(currentURL(), '/contact', 'should navigate to contact');
   });
 
   test('should list available rentals.', async function (assert) {
@@ -43,6 +56,16 @@ module('Acceptance | list rentals', function(hooks) {
   });
 
   test('should show details for a selected rental', async function (assert) {
+    await visit('/');
+    assert.equal(this.element.querySelectorAll('.details').length, 3, 'should display 3 details');
+    assert.ok(this.element.querySelector('.detail.rental-id').textContent.includes('ID'), 'should contain 1 listing with ID');
+    assert.ok(this.element.querySelector('.detail.owner').textContent.includes('Owner'), 'should contain 1 detail with owner');
+    assert.ok(this.element.querySelector('.detail.type').textContent.includes('Type'), 'should contain 1 detail with type');
+    assert.ok(this.element.querySelector('.detail.location').textContent.includes('Location'), 'should contain 1 detail with location');
+    assert.ok(this.element.querySelector('.detail.bedrooms').textContent.includes('Number of bedrooms'), 'should contain 1 detail with bedrooms');
+
+    //assert.equal(this.element.querySelector('.listing h3').textContent.trim(), 'test-title', 'Title: test-title');
+    //assert.equal(this.element.querySelector('.listing .owner').textContent.trim(), 'Owner: test-owner', 'Owner: test-owner');
   });
 
 
