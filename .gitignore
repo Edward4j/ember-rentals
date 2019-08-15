@@ -26,3 +26,6 @@
 
 # RubyMine IDE
 .idea/
+
+# /config/deploy.js
+# config/deploy.js
