@@ -6,6 +6,9 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    'ember-simple-leaflet-maps': {
+      apiKey: 'pk.eyJ1IjoiZWRvdmdhbCIsImEiOiJjanpiZDF0ejQwOTliM2xwaHVwcm9tM3hmIn0.PdjuzrT-4cEHzQfMEo9qNA'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
