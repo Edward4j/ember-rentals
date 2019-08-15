@@ -56,13 +56,20 @@ module('Acceptance | list rentals', function(hooks) {
   });
 
   test('should show details for a selected rental', async function (assert) {
-    await visit('/');
+    await visit('/rentals');
+    await click(".grand-old-mansion");
+    assert.equal(currentURL(), '/rentals/grand-old-mansion', 'should navigate to show route');
+    assert.ok(this.element.querySelector('.show-listing h2').textContent.includes('Grand Old Mansion'), 'should list rental title');
+    assert.ok(this.element.querySelector('.show-listing .description'), 'should list a description of the property');
+
+    /*
     assert.equal(this.element.querySelectorAll('.details').length, 3, 'should display 3 details');
     assert.ok(this.element.querySelector('.detail.rental-id').textContent.includes('ID'), 'should contain 1 listing with ID');
     assert.ok(this.element.querySelector('.detail.owner').textContent.includes('Owner'), 'should contain 1 detail with owner');
     assert.ok(this.element.querySelector('.detail.type').textContent.includes('Type'), 'should contain 1 detail with type');
     assert.ok(this.element.querySelector('.detail.location').textContent.includes('Location'), 'should contain 1 detail with location');
     assert.ok(this.element.querySelector('.detail.bedrooms').textContent.includes('Number of bedrooms'), 'should contain 1 detail with bedrooms');
+    */
 
     //assert.equal(this.element.querySelector('.listing h3').textContent.trim(), 'test-title', 'Title: test-title');
     //assert.equal(this.element.querySelector('.listing .owner').textContent.trim(), 'Owner: test-owner', 'Owner: test-owner');
