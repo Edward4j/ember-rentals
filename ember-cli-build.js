@@ -2,9 +2,18 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+var env = EmberApp.env() || 'development';
+var isProductionLikeBuild = ['production', 'staging', 'development'].indexOf(env) > -1;
+var fingerprintOptions = {
+  enabled: isProductionLikeBuild,
+  prepend: 'https://ember-super-rentals.s3.eu-central-1.amazonaws.com', //(env === 'production') ? *your production bucket url*: *your staging bucket url*,
+  extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'svg', 'pdf']
+}
+
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    fingerprint: fingerprintOptions
   });
 
   // Use `app.import` to add additional libraries to the generated
