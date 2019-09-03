@@ -6,6 +6,9 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    //'ember-cli-mirage': {
+    //  enabled: true
+    //},
     'ember-simple-leaflet-maps': {
       apiKey: 'pk.eyJ1IjoiZWRvdmdhbCIsImEiOiJjanpiZDF0ejQwOTliM2xwaHVwcm9tM3hmIn0.PdjuzrT-4cEHzQfMEo9qNA'
     },
@@ -32,6 +35,11 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    // ENV.locationType = 'hash'
+    // ENV.host = "https://super-rentals-ember.herokuapp.com"
+    //ENV['ember-cli-mirage'] = {
+    //  enabled: true
+    //};
   }
 
   if (environment === 'test') {
@@ -48,6 +56,11 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    // ENV.locationType = 'hash';
+    // ENV.host = "https://super-rentals-ember.herokuapp.com"
+    //ENV['ember-cli-mirage'] = {
+    //  enabled: true
+    //};
   }
 
   return ENV;
