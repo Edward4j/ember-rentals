@@ -32,6 +32,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    //ENV.emberPouch.localDb = 'local-rentals';
+    //ENV.emberPouch.remoteDb = 'http://localhost:5984/rentals_development';
   }
 
   if (environment === 'test') {
@@ -48,6 +50,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    //ENV.emberPouch.localDb = 'local-rentals';
+    //ENV.emberPouch.remoteDb = 'http://localhost:5984/rentals_development';
   }
 
   return ENV;
