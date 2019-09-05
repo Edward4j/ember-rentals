@@ -4,7 +4,7 @@ export default Route.extend({
 
   actions: {
     createRental() {
-      let rental = this.store.createRecord('rental', {
+      let newRental = this.store.createRecord('rental', {
         id         : this.controller.newId,
         title      : this.controller.title,
         owner      : this.controller.owner,
@@ -15,7 +15,9 @@ export default Route.extend({
         description: this.controller.description
       });
 
-      rental.save();
+      newRental.save().then((rental) => {
+        this.transitionTo('rentals.show', rental.id);
+      });
 
     },
 
