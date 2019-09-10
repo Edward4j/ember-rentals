@@ -54,6 +54,8 @@
     "node": "8.* || >= 10.*"
   },
   "dependencies": {
+    "core-js": "^3.2.1",
+    "clean-css": "^4.2.1",
     "pouchdb": "^7.1.1"
   }
 }

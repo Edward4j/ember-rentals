@@ -20,6 +20,21 @@
       <div class="description">
         <p>{{this.model.description}}</p>
       </div>
+
+      <div class="edit-rental">
+        {{#if this.model.title}}
+          <h3>{{#link-to "rentals.edit" this.model class="rental-to-edit"}}Edit {{this.model.title}}{{/link-to}}</h3>
+        {{else}}
+          <h3>{{#link-to "rentals.edit" this.model class="rental-to-edit"}}Edit {{this.model.id}}{{/link-to}}</h3>
+        {{/if}}
+      </div>
+
+      <br>
+
+      <div class="history back">
+        <h3>{{#link-to "rentals"}}Back to the rentals list{{/link-to}}</h3>
+      </div>
+
     </div>
   </div>
 </div>

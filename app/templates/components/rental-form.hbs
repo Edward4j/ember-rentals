@@ -3,28 +3,19 @@
 
   <br><br>
 
-  <label for="new-title-0">Title:</label>
+  <label for="new-title">Title:</label>
 
-  <Input @id="new-title-1" placeholder={{this.rental.title}} @value={{this.rental.title}} @key-up={{action "updateTitle"}} />
+  <Input @id="new-title" @placeholder={{rental.title}} @value={{rental.title}} @key-up={{action "updateTitle"}} />
 
-  <label for="new-owner">Owner: {{this.rental.owner}}</label>
+  <br><br>
+
+  <label for="new-owner">Owner: {{rental.owner}}</label>
 
   {{input
     type="text"
     id="new-owner"
-    placeholder=this.rental.owner
-    value=this.rental.owner
-  }}
-
-  <br><br>
-
-  <label for="new-title">Title:</label>
-
-  {{input
-    type="text"
-    id="new-title"
-    placeholder="What is an amazing rental?"
-    value=this.rental.title
+    placeholder=rental.owner
+    value=rental.owner
   }}
 
   <br><br>
@@ -34,8 +25,8 @@
   {{input
     type="text"
     id="new-city"
-    placeholder="What is an amazing city?"
-    value=this.rental.city
+    placeholder=rental.city
+    value=rental.city
   }}
 
   <br><br>
@@ -45,8 +36,8 @@
   {{input
     type="text"
     id="new-category"
-    placeholder="What is a category rental?"
-    value=this.rental.category
+    placeholder=rental.category
+    value=rental.category
   }}
 
   <br><br>
@@ -56,8 +47,8 @@
   {{input
     type="text"
     id="new-image"
-    placeholder="Put Image url here"
-    value=this.rental.image
+    placeholder=rental.image
+    value=rental.image
   }}
 
   <br><br>
@@ -68,8 +59,8 @@
     type="number"
     id="new-bedrooms"
     placeholder=this.rental.bedrooms
-    hint="Input Bedrooms number here"
-    value=this.rental.bedrooms
+    hint=rental.bedrooms
+    value=rental.bedrooms
   }}
 
   <br><br>
@@ -80,8 +71,8 @@
     cols="80"
     rows="6"
     id="new-description"
-    placeholder="Here the story begins..."
-    value=this.rental.description
+    placeholder=rental.description
+    value=rental.description
   }}
 
 </div>
