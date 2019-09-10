@@ -1,18 +1,19 @@
-<h1>This in new rental</h1>
 
-<br><br>
-
-<div class="rental-form">
+<div class="rental">
 
   <br><br>
 
-  <label for="new-owner">Owner:</label>
+  <label for="new-title-0">Title:</label>
+
+  <Input @id="new-title-1" placeholder={{this.rental.title}} @value={{this.rental.title}} @key-up={{action "updateTitle"}} />
+
+  <label for="new-owner">Owner: {{this.rental.owner}}</label>
 
   {{input
     type="text"
     id="new-owner"
-    placeholder="Who is owner of the rental?"
-    value=model.owner
+    placeholder=this.rental.owner
+    value=this.rental.owner
   }}
 
   <br><br>
@@ -23,7 +24,7 @@
     type="text"
     id="new-title"
     placeholder="What is an amazing rental?"
-    value=model.title
+    value=this.rental.title
   }}
 
   <br><br>
@@ -34,7 +35,7 @@
     type="text"
     id="new-city"
     placeholder="What is an amazing city?"
-    value=model.city
+    value=this.rental.city
   }}
 
   <br><br>
@@ -45,7 +46,7 @@
     type="text"
     id="new-category"
     placeholder="What is a category rental?"
-    value=model.category
+    value=this.rental.category
   }}
 
   <br><br>
@@ -56,7 +57,7 @@
     type="text"
     id="new-image"
     placeholder="Put Image url here"
-    value=model.image
+    value=this.rental.image
   }}
 
   <br><br>
@@ -66,8 +67,9 @@
   {{input
     type="number"
     id="new-bedrooms"
-    placeholder="Input Bedrooms number here"
-    value=model.bedrooms
+    placeholder=this.rental.bedrooms
+    hint="Input Bedrooms number here"
+    value=this.rental.bedrooms
   }}
 
   <br><br>
@@ -79,14 +81,8 @@
     rows="6"
     id="new-description"
     placeholder="Here the story begins..."
-    value=model.description
+    value=this.rental.description
   }}
 
-  <br><br>
-
-  <div>
-    <button class="button-indent" {{action "save"}}>Create Rental</button>
-    <button class="button-indent" {{action "cancel"}}>Cancel</button>
-  </div>
-
 </div>
+

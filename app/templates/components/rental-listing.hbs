@@ -9,7 +9,12 @@
   </a>
 
   <div class="details">
-    <h3>{{#link-to "rentals.show" rental class=rental.id}}{{this.rental.title}}{{/link-to}}</h3>
+    {{#if this.rental.title}}
+      <h3>{{#link-to "rentals.show" rental class=rental.id}}{{this.rental.title}}{{/link-to}}</h3>
+    {{else}}
+      <h3>{{#link-to "rentals.show" rental class=rental.id}}{{this.rental.id}}{{/link-to}}</h3>
+    {{/if}}
+
     <div class="detail rental-id">
       <span>ID:</span> {{this.rental.id}}
     </div>
@@ -25,6 +30,17 @@
     <div class="detail bedrooms">
       <span>Number of bedrooms:</span> {{this.rental.bedrooms}}
     </div>
+
+    <br><br>
+
+    <div class="edit-rental">
+      {{#if this.rental.title}}
+        <h3>{{#link-to "rentals.edit" rental class="rental-to-edit"}}Edit {{this.rental.title}}{{/link-to}}</h3>
+      {{else}}
+        <h3>{{#link-to "rentals.edit" rental class="rental-to-edit"}}Edit {{this.rental.id}}{{/link-to}}</h3>
+      {{/if}}
+    </div>
+
   </div>
   <LocationMap @location={{this.rental.city}} />
 </article>

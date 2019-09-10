@@ -1,0 +1,16 @@
+{{#if this.rental.title}}
+  {{debugger}}
+  <h3>Current Rental #{{this.rental.title}}</h3>
+  <h2>{{this.rental.title}}</h2>
+{{else}}
+  <h3>Current Rental #{{this.rental.id}}</h3>
+{{/if}}
+
+<RentalForm @rental={{this.rental}} />
+
+<br><br>
+
+<div>
+  <button class="button-indent" {{action "save" this.rental}}>Update Rental</button>
+  <button class="button-indent" {{action "cancel" this.rental}}>Cancel</button>
+</div>
