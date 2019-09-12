@@ -1,11 +1,12 @@
 <ListFilter
     @filter={{action "filterByCity"}}
-        as |filteredResults|
+        as |pagedContent|
 >
   <ul class="results">
-    {{#each filteredResults as |rentalUnit|}}
+    {{#each pagedContent as |rentalUnit|}}
       <li><RentalListing @rental={{rentalUnit}} /></li>
     {{/each}}
   </ul>
 </ListFilter>
-{{outlet}}
+
+{{page-numbers content=pagedContent currentPage=page totalPages=this.model.length showFL=true}}

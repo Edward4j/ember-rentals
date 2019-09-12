@@ -1,41 +1,15 @@
-.edit-rental {
-  position: relative;
-  width: 100%;
-}
-
 .pagination {
-  /*display: inline-block;*/
-  /*float: left;*/
-  list-style: none;
-  position: relative;
-  left: 26%;
-}
-
-.page-number, .dots {
-  color: #2f6fad;
+  display: inline-block;
   float: left;
-  padding: 0 5px;
+  list-style: none;
 }
 
-.page-number.active {
+.page-number {
+  color: #2f6fad;
+}
+.page-number .active {
   background-color: #0b97c4;
   color: white;
-  float: left;
-  padding: 0 5px;
-}
-
-.page-number.active a {
-  color: white;
-}
-
-.arrow.prev {
-  float: left;
-  padding: 0 5px;
-}
-
-.arrow.next {
-  display: inline-block;
-  padding: 0 5px;
 }
 
 .pagination > li > a, .pagination > li > span{
@@ -47,11 +21,10 @@
   background-color: #D9E9FA;
   border-color: #A3D2F4;
   color: #5A768F;
-  padding: 0.15em 10px;
 }
 
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
-  background-color: #5168ff;
+  background-color: #FFFAEC;
 }
 
 .pagination > li > a:hover{

@@ -1,3 +1,5 @@
+import config from '../config/environment';
+
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
@@ -5,6 +7,33 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    'ember-cli-favicon': {
+      enabled: env != 'test',
+
+      onSuccess() {},
+
+      iconPath: '/assets/favicon.ico',
+
+      faviconsConfig: {
+        // these options are passed directly to the favicons module
+        path: config.ENV.rootURL,
+        //appName: package.name,
+        //appShortName: package.name,
+        //appDescription: package.description,
+        //developerName: package.author,
+        //version: package.version,
+        icons: {
+          favicons: true,
+          android: isProductionEnv,
+          appleIcon: isProductionEnv,
+          appleStartup: isProductionEnv,
+          coast: isProductionEnv,
+          firefox: isProductionEnv,
+          windows: isProductionEnv,
+          yandex: isProductionEnv
+        }
+      }
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
