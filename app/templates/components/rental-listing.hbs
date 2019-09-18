@@ -9,6 +9,7 @@
   </a>
 
   <div class="details">
+    {{debugger}}
     {{#if this.rental.title}}
       <h3>{{#link-to "rentals.show" rental class=rental.id}}{{this.rental.title}}{{/link-to}}</h3>
     {{else}}

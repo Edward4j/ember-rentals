@@ -4,8 +4,8 @@ import { Adapter } from 'ember-pouch';
 
 //PouchDB.debug.enable('*');
 
-var remote = new PouchDB('http://localhost:5984/rentals_development');
-var db = new PouchDB('local_rentals');
+var remote = new PouchDB('https://my.couchcluster.com/rentals');
+var db = new PouchDB('http://localhost:5984/rentals_development');
 
 db.sync(remote, {
   live: true, // do a live, ongoing sync

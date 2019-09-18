@@ -1,11 +1,10 @@
-<ListFilter
-    @filter={{action "filterByCity"}}
-        as |filteredResults|
->
-  <ul class="results">
-    {{#each filteredResults as |rentalUnit|}}
-      <li><RentalListing @rental={{rentalUnit}} /></li>
-    {{/each}}
-  </ul>
-</ListFilter>
-{{outlet}}
+
+<ul>
+  {{#each this.model as |rentalUnit|}}
+    {{debugger}}
+    <li><RentalListing @rental={{rentalUnit}} /></li>
+  {{/each}}
+</ul>
+
+{{!page-numbers totalPages=pageCount currentPage=page_no}}
+{{ember-cli-simple-pagination totalPages=pageCount currentPage=page_no}}

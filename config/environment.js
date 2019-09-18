@@ -34,6 +34,8 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = true;
     //ENV.emberPouch.localDb = 'local-rentals';
     //ENV.emberPouch.remoteDb = 'http://localhost:5984/rentals_development';
+    ENV.remote_couch = 'https://my.couchcluster.com/rentals';
+    ENV.local_couch = 'rentals_development';
   }
 
   if (environment === 'test') {
@@ -52,6 +54,8 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
     //ENV.emberPouch.localDb = 'local-rentals';
     //ENV.emberPouch.remoteDb = 'http://localhost:5984/rentals_development';
+    ENV.remote_couch = 'https://my.couchcluster.com/rentals';
+    ENV.local_couch = 'rentals_development';
   }
 
   return ENV;
